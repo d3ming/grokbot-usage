@@ -1,0 +1,29 @@
+# Personal data and generated output: never commit
+data/
+scratch/
+usage-report-out/
+usage-tool-out/
+out/
+output/
+reports/
+*.html
+*.png
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.jsonl
+*.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
