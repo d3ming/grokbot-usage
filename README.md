@@ -133,3 +133,16 @@ This repository contains code only. Never commit generated reports, screenshots,
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Search-index adapter (data after Sep 17)
+
+`search_index_usage.py` reads `search-index.db` (chat text only) read-only (`mode=ro`). A turn is one user
+message plus the assistant messages that follow it, per agent. Measures are message counts (activity) and
+assistant characters (a size proxy). **Neither is tokens or cost.** Turns are classified as `routine`,
+`agent` (relayed or hidden wakes) or `user` from the opening text; the index strips wrapper prefixes, so
+this is a heuristic. `--json` prints per-turn rows without message bodies.
+
+```bash
+python3 search_index_usage.py --agent-data ~/agent-data --start-ms 1791853200000 [--dedupe-transcripts]
+python3 -m unittest discover tests
+```
